@@ -41,9 +41,19 @@ const Navbar = () => {
                     </div>
                     {user?.uid ?
                         <div className='flex justify-center items-center'>
-                            <h1>
+                            {/* <h1>
                                 <img className='rounded-full w-8 mx-5' src={user.photoURL} alt="" />
-                            </h1>
+                            </h1> */}
+                            <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
+                                <button className="">
+                                    <div className="avatar online mx-5">
+                                        <div className="w-8 rounded-full">
+                                            <img src={user.photoURL} alt="" />
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+
                             <button className='mx-2 p-2 px-5 rounded-lg bg-rose-800 hover:bg-rose-900' onClick={handleLogout}  >
                                 Logout
                             </button>
