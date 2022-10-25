@@ -3,7 +3,9 @@ import './App.css';
 import Catagory from './Components/Catagory/Catagory';
 import Classes from './Components/Classes/Classes';
 import Home from './Components/Home/Home';
+import Login from './Components/Login/Login';
 import News from './Components/News/News';
+import Register from './Components/Register/Register';
 import Main from './Layout/Main';
 
  const router = createBrowserRouter([
@@ -14,7 +16,7 @@ import Main from './Layout/Main';
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('https://easy-guidance-server.vercel.app/tutorial')
+        // loader: () => fetch('https://easy-guidance-server.vercel.app/tutorial')
       },
       {
         path:'/classes',
@@ -28,10 +30,15 @@ import Main from './Layout/Main';
       {
         path: '/news/:id',
         element: <News></News>
+      },
+      {
+        path:'/register',
+        element:<Register></Register>
+      },
+      {
+        path:'/login',
+        element:<Login></Login>
       }
-      // {
-      //   path:
-      // }
     ]
     
   }

@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthContext/AuthProvider';
 
 const Navbar = () => {
+    const { user, logOutUser } = useContext(AuthContext);
+    const handleLogout = () => {
+        logOutUser()
+            .then(() => {
+                // Sign-out successful.
+            }).catch((error) => {
+                // An error happened.
+                console.log(error.message)
+            });
+    }
     return (
         <div className=' sticky top-0 w-full'>
             <div className='backdrop-blur-sm bg-black/80  flex w-full justify-between px-24 items-center  font-semibold text-rose-50 py-1'>
@@ -28,8 +39,20 @@ const Navbar = () => {
 
                         </label>
                     </div>
-                    <Link className='mx-2 p-2 px-5 rounded-lg bg-rose-800 hover:bg-rose-900' to={'/login'}>Login</Link>
-                    <Link className='mx-5 p-2 px-5 rounded-lg bg-rose-800 hover:bg-rose-900' to={'/register'}>Register</Link>
+                    {user ?
+                        <div className='flex'>
+                            <h1>
+                                <img className='rounded-lg' src={user.photoURL} alt="" />
+                            </h1>
+                            <button onClick={handleLogout}  >
+                                Logout
+                            </button>
+                        </div> :
+                        <div>
+                            <Link className='mx-2 p-2 px-5 rounded-lg bg-rose-800 hover:bg-rose-900' to={'/login'}>Login</Link>
+                            <Link className='mx-5 p-2 px-5 rounded-lg bg-rose-800 hover:bg-rose-900' to={'/register'}>Register</Link>
+                        </div>
+                    }
                 </div>
             </div>
         </div>

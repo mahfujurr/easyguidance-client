@@ -12,13 +12,13 @@ const Classes = () => {
             .then(data => setClasses(data))
     }, [])
     return (
-        <div className='px-24  flex'>
-            <div className='h-screen sticky top-0 pt-12 flex flex-col text-white text-xl w-1/5 '>
+        <div className='px-5 lg:px-24  flex flex-col lg:flex-row'>
+            <div className='lg:h-screen lg:sticky lg:top-0 pt-12 flex flex-col text-white text-xl w-full lg:w-1/5 '>
                 {
                     classes.map(cs=> <Link to={`/catagory/${cs.id}`} className='backdrop-blur-sm bg-black/80 hover:bg-rose-800 p-2  my-1 rounded-2xl text-center font-semibold'>{cs.name}</Link>)
                 }
             </div>
-            <div className='grid grid-cols-2 w-4/5 gap-10 pt-12'>
+            <div className='grid grid-cols-1 lg:grid-cols-2 w-full lg:w-4/5  gap-10 pt-12'>
                 {
                     classes.map(cs=>
                     <SingleClass

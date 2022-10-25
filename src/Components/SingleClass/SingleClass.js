@@ -5,7 +5,7 @@ const SingleClass = ({ cs }) => {
     const { id, name, thumbnail_url, thumbnail_details } = cs;
     console.log(cs)
     return (
-        <div className=' text-black bg-white/90 pb-0  rounded-xl ml-10 hover:shadow-rose-400 shadow-xl shadow-slate-400'>
+        <div className=' text-black bg-white/90 pb-0  rounded-xl lg:ml-10 hover:shadow-rose-400 shadow-xl shadow-slate-400'>
             <div className=''>
                 <img className='rounded-t-xl object-cover h-64 w-full	 ' src={thumbnail_url} alt="" />
                 <div className='p-5 h-full flex flex-col justify-center items-center'>
