@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContext/AuthProvider';
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateCurrentProfile } = useContext(AuthContext);
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -19,13 +20,23 @@ const Register = () => {
             .then(res => {
                 const user = res.user;
                 form.reset();
-
-
+                handleUserInfoUpdate(name, photoURL);
             })
             .catch((error) => {
                 console.log(error.message);
-                // ..
             });
+
+    }
+
+    const handleUserInfoUpdate = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+
+        }
+        updateCurrentProfile(profile)
+            .then(() => { })
+            .catch(error => console.error(error));
     }
     return (
         <div>
@@ -43,18 +54,18 @@ const Register = () => {
                                     <span className="label-text">Name</span>
                                 </label>
                                 <input type="text" name='name' placeholder="Name" className="input input-bordered" />
-                                
+
                                 <label className="label">
                                     <span className="label-text">PhotoURL</span>
                                 </label>
                                 <input type="text" name='photourl' placeholder="Name" className="input input-bordered" />
-                                
+
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
                                 <input type="email" name='email' placeholder="email" className="input input-bordered" />
                             </div>
-                            
+
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
