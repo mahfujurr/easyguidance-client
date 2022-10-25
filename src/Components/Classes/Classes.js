@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import SingleClass from '../SingleClass/SingleClass';
 import './Classes.css'
@@ -12,13 +12,13 @@ const Classes = () => {
             .then(data => setClasses(data))
     }, [])
     return (
-        <div className='px-24 pt-10 flex'>
-            <div className='flex flex-col text-white text-xl w-1/5 '>
+        <div className='px-24  flex'>
+            <div className='h-screen sticky top-0 pt-12 flex flex-col text-white text-xl w-1/5 '>
                 {
-                    classes.map(cs=> <Link to={`/catagory/${cs.id}`} className='backdrop-blur-sm bg-black/80  p-2  my-1 rounded-2xl text-center font-semibold'>{cs.name}</Link>)
+                    classes.map(cs=> <Link to={`/catagory/${cs.id}`} className='backdrop-blur-sm bg-black/80 hover:bg-rose-800 p-2  my-1 rounded-2xl text-center font-semibold'>{cs.name}</Link>)
                 }
             </div>
-            <div className='grid grid-cols-2 w-4/5 gap-10 '>
+            <div className='grid grid-cols-2 w-4/5 gap-10 pt-12'>
                 {
                     classes.map(cs=>
                     <SingleClass

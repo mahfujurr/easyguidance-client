@@ -14,7 +14,7 @@ const Home = () => {
                     </h1>
                     <p className='text-xl font-semibold text-black py-5'>
                         Studying physics is a fascinating journey where the human mind explores how the universe works.
-                        Unfortunately, this is not what most high school students feel… Often, students perceive Physics like a difficult topic, sometimes incomprehensible. Nothing could be further from the truth.
+                        Unfortunately, this is not what most high school students feel. Often, students perceive Physics like a difficult topic, sometimes incomprehensible. Nothing could be further from the truth.
                     </p>
                     <button className='p-4 bg-rose-900 rounded-lg hover:bg-rose-800 text-xl font-semibold text-rose-50'>
                         <Link to={'/classes'}>Explore Classes</Link>

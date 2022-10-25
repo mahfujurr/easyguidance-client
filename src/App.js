@@ -4,7 +4,6 @@ import Catagory from './Components/Catagory/Catagory';
 import Classes from './Components/Classes/Classes';
 import Home from './Components/Home/Home';
 import News from './Components/News/News';
-import SingleClass from './Components/SingleClass/SingleClass';
 import Main from './Layout/Main';
 
  const router = createBrowserRouter([
@@ -20,12 +19,6 @@ import Main from './Layout/Main';
       {
         path:'/classes',
         element:<Classes></Classes>,
-        children:[
-          {
-            path:'/classes',
-            element:<SingleClass></SingleClass>
-          }
-        ]
       },
       {
         path:'/catagory/:id',

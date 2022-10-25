@@ -3,17 +3,19 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
-        <div className=''>
+        <div className=' sticky top-0 w-full'>
             <div className='backdrop-blur-sm bg-black/80  flex w-full justify-between px-24 items-center  font-semibold text-rose-50 py-1'>
-                <div>
-                    <h1 className='text-white font-bold text-2xl'>
+                <div className='flex justify-center items-center'>
+                    <img className='w-10' src="./eg2.png" alt="" />
+                    <Link to={'/'} className='text-white font-bold text-2xl mx-2'>
                         Easy Guidance
-                    </h1>
+                    </Link>
                 </div>
                 <div>
                     <Link className='mx-5 hover:text-rose-500' to={'/'}>Home</Link>
                     <Link className='mx-5 hover:text-rose-500' to={'/classes'}>Classes</Link>
                     <Link className='mx-5 hover:text-rose-500' to={'/about'}>FAQ</Link>
+                    <Link className='mx-5 hover:text-rose-500' to={'/faq'}>About</Link>
                     <Link className='mx-5 hover:text-rose-500' to={'/blog'}>Blog</Link>
                 </div>
 
