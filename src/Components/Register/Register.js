@@ -11,12 +11,15 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const name = form.name.value;
-        console.log(email, password, name);
+        const photoURL = form.photourl.value;
+
+        //console.log(email, password, name, photoURL);
 
         createUser(email, password)
             .then(res => {
                 const user = res.user;
                 form.reset();
+
 
             })
             .catch((error) => {
@@ -29,7 +32,7 @@ const Register = () => {
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col ">
                     <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Register now!</h1>
+                        <h1 className="text-3xl font-bold">Register now!</h1>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 
@@ -40,11 +43,18 @@ const Register = () => {
                                     <span className="label-text">Name</span>
                                 </label>
                                 <input type="text" name='name' placeholder="Name" className="input input-bordered" />
+                                
+                                <label className="label">
+                                    <span className="label-text">PhotoURL</span>
+                                </label>
+                                <input type="text" name='photourl' placeholder="Name" className="input input-bordered" />
+                                
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
                                 <input type="email" name='email' placeholder="email" className="input input-bordered" />
                             </div>
+                            
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>

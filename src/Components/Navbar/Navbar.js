@@ -39,12 +39,12 @@ const Navbar = () => {
 
                         </label>
                     </div>
-                    {user ?
-                        <div className='flex'>
+                    {user?.uid ?
+                        <div className='flex justify-center items-center'>
                             <h1>
-                                <img className='rounded-lg' src={user.photoURL} alt="" />
+                                <img className='rounded-full w-8 mx-5' src={user.photoURL} alt="" />
                             </h1>
-                            <button onClick={handleLogout}  >
+                            <button className='mx-2 p-2 px-5 rounded-lg bg-rose-800 hover:bg-rose-900' onClick={handleLogout}  >
                                 Logout
                             </button>
                         </div> :

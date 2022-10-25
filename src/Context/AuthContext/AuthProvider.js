@@ -10,16 +10,20 @@ const AuthProvider = ({children}) => {
     const [loading, setLoading] = useState(true);
 
     const createUser = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
 
     }
     const loginUser = (email, password) =>{
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
     const logOutUser =() =>{
+        setLoading(true);
         return signOut(auth);
     }
     const providerLogin = (provider) =>{
+        setLoading(true);
         return signInWithPopup(auth, provider);
     }
 
@@ -27,12 +31,12 @@ const AuthProvider = ({children}) => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
             console.log(currentUser);
             setUser(currentUser);
-            setLoading(false)
+            setLoading(false);
         })
         return ()=>{unsubscribe();}
     },[])
 
-    const authInfo = {user, providerLogin, logOutUser, loginUser, createUser}
+    const authInfo = {user, providerLogin, logOutUser, loginUser, createUser, loading}
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

@@ -1,12 +1,16 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContext/AuthProvider';
 
 const Login = () => {
+    const [errors, setError] = useState();
     const { providerLogin, loginUser } = useContext(AuthContext);
     const gProvider = new GoogleAuthProvider()
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleGoogleSign = () => {
         providerLogin(gProvider)
@@ -16,9 +20,9 @@ const Login = () => {
                 // ...
             }).catch((error) => {
                 // Handle Errors here.
-                const errorCode = error.code;
+                //const errorCode = error.code;
                 const errorMessage = error.message;
-                console.log(errorMessage);
+                
             });
     }
     const handleSubmit = (event) => {
@@ -32,15 +36,18 @@ const Login = () => {
                 const user = res.user;
                 console.log(user);
                 form.reset();
-                navigate('/');
+                navigate(from, {replace: true});
             })
             .catch((error) => {
-                console.log(error.message);
+                const errorMessage = error.message;
+                if(errorMessage){
+                    setError(error.message);
+                }
             });
     }
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen bg-base-200 ">
                 <div className="hero-content flex-col ">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Login now!</h1>
@@ -62,6 +69,11 @@ const Login = () => {
                                 <label className="label">
                                     <Link className="label-text-alt link link-hover">Forgot password?</Link>
                                 </label>
+                            </div>
+                            <div>
+                                <p className='text-red-500'>
+                                    {errors}
+                                </p>
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>

@@ -7,6 +7,7 @@ import Login from './Components/Login/Login';
 import News from './Components/News/News';
 import Register from './Components/Register/Register';
 import Main from './Layout/Main';
+import PrivateRoute from './Routes/PrivateRoute/PrivateRoute';
 
  const router = createBrowserRouter([
   {
@@ -24,7 +25,7 @@ import Main from './Layout/Main';
       },
       {
         path:'/catagory/:id',
-        element: <Catagory></Catagory>,
+        element: <PrivateRoute><Catagory></Catagory></PrivateRoute>,
         loader: ({params}) => fetch(`https://easy-guidance-server.vercel.app/catagory/${params.id}`)
       },
       {
