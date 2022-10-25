@@ -6,13 +6,13 @@ const Home = () => {
     
 
     return (
-        <div className='flex px-24 pt-16 pb-72 bg-gradient-to-r from-black'>
+        <div className='flex px-24 pt-16 pb-72 '>
             <div className='flex mt-12 justify-center items-center'>
                 <div className='w-1/2  '>
                     <h1 className='text-5xl font-bold text-rose-600 py-2'>
                         Easy Guidance For Physics!
                     </h1>
-                    <p className='text-xl font-semibold text-white py-5'>
+                    <p className='text-xl font-semibold text-black py-5'>
                         Studying physics is a fascinating journey where the human mind explores how the universe works.
                         Unfortunately, this is not what most high school students feel… Often, students perceive Physics like a difficult topic, sometimes incomprehensible. Nothing could be further from the truth.
                     </p>
