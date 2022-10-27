@@ -18,7 +18,7 @@ const InsideCatagory = ({ tl }) => {
             <div ref={ref}>
                 <div className='flex flex-col lg:flex-row justify-center items-center '>
 
-                    <img className='w-1/2 rounded-2xl my-5' src={tl.photoURL} alt="" />
+                    <img className='w-full lg:w-1/2 rounded-2xl my-5' src={tl.photoURL} alt="" />
                     <div className='lg:pl-10'>
                         <h1 className='font-bold text-2xl py-5'>Project Description</h1>
                         <p className='font-semibold mb-5'>{tl.details}</p>

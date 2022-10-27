@@ -6,9 +6,9 @@ const Home = () => {
     
 
     return (
-        <div className='flex px-24 pt-16 pb-72 '>
-            <div className='flex mt-12 justify-center items-center'>
-                <div className='w-1/2  '>
+        <div className='flex px-5 lg:px-24 pt-5 lg:pt-16 pb-5 lg:pb-72 '>
+            <div className='flex flex-col-reverse  lg:flex-row mt-0 lg:mt-12 justify-center items-center'>
+                <div className='w-full lg:w-1/2  '>
                     <h1 className='text-5xl font-bold text-rose-600 py-2'>
                         Easy Guidance For Physics!
                     </h1>
@@ -20,7 +20,7 @@ const Home = () => {
                         <Link to={'/classes'}>Explore Classes</Link>
                     </button>
                 </div>
-                <div className='w-1/2 px-10 '>
+                <div className='w-full lg:w-1/2 px-10 '>
                     <img className='rounded-lg' src="https://images.unsplash.com/photo-1607988795691-3d0147b43231?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" />
                 </div>
             </div>

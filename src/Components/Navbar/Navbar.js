@@ -1,8 +1,10 @@
-import React, { useContext } from 'react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContext/AuthProvider';
 
 const Navbar = () => {
+    const [open, setOpen] = useState(false);
     const { user, logOutUser } = useContext(AuthContext);
     const handleLogout = () => {
         logOutUser()
@@ -15,14 +17,14 @@ const Navbar = () => {
     }
     return (
         <div className=' sticky top-0 w-full'>
-            <div className='backdrop-blur-sm bg-black/80  flex w-full justify-between px-24 items-center  font-semibold text-rose-50 py-1'>
+            <div className='backdrop-blur-sm bg-black/80  flex w-full justify-between px-0 lg:px-24 items-center  font-semibold text-rose-50 py-1'>
                 <div className='flex justify-center items-center'>
                     <img className='w-10' src="./eg2.png" alt="" />
-                    <Link to={'/'} className='text-white font-bold text-2xl mx-2'>
+                    <Link to={'/'} className='text-white font-bold text-xl  mx-2'>
                         Easy Guidance
                     </Link>
                 </div>
-                <div>
+                <div className={`flex text-center  lg:flex-row flex-col absolute lg:static bg-black/80 lg:bg-black/0 w-full lg:w-1/3 duration-200 ease-in ${open ? 'top-16' : 'top-[-120px]'}`}>
                     <Link className='mx-5 hover:text-rose-500' to={'/'}>Home</Link>
                     <Link className='mx-5 hover:text-rose-500' to={'/classes'}>Classes</Link>
                     <Link className='mx-5 hover:text-rose-500' to={'/about'}>About</Link>
@@ -64,6 +66,11 @@ const Navbar = () => {
                         </div>
                     }
                 </div>
+                <button onClick={ ()=>setOpen(!open) }  className=" h-12 w-12 text-white lg:hidden">
+                    {
+                        open ? <XMarkIcon/> : <Bars3Icon/>
+                    }
+            </button>
             </div>
         </div>
     );

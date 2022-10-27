@@ -8,7 +8,7 @@ const Catagory = () => {
     //console.log(tutorial)
 
     return (
-        <div className='p-5 mt-5  mx-48'>
+        <div className='p-5 mt-5 mx-5 lg:mx-48'>
             
             
             {
