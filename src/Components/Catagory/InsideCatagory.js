@@ -26,9 +26,7 @@ const InsideCatagory = ({ tl }) => {
                     </div>
 
                 </div>
-                <p className='font-semibold mb-5'>{tl.details}</p>
-                <p className='font-semibold mb-5'>{tl.details}</p>
-                <p className='font-semibold mb-5'>{tl.details}</p>
+                <p className='font-semibold mb-5'>{tl.more_details}</p>
                 <Link to={`/tutorial/${tl._id}`}>
                     <button className='btn bg-rose-900 hover:bg-rose-800'>Get premium access
                     </button>
