@@ -13,26 +13,29 @@ const Login = () => {
 
     const from = location.state?.from?.pathname || '/';
 
+    //Google click handler 
     const handleGoogleSign = () => {
         googleLogin(gProvider)
             .then((result) => {
                 const user = result.user;
-                navigate(from, {replace: true});
+                navigate(from, { replace: true });
 
             }).catch((error) => {
                 const errorMessage = error.message;
-                
+
             });
     }
+
+    //Github click handler 
     const handleGithubSign = () => {
         githubLogin(githubProvider)
             .then((result) => {
                 const user = result.user;
-                navigate(from, {replace: true});
+                navigate(from, { replace: true });
 
             }).catch((error) => {
                 const errorMessage = error.message;
-                
+
             });
     }
     const handleSubmit = (event) => {
@@ -44,13 +47,13 @@ const Login = () => {
         loginUser(email, password)
             .then(res => {
                 const user = res.user;
-                
+
                 form.reset();
-                navigate(from, {replace: true});
+                navigate(from, { replace: true });
             })
             .catch((error) => {
                 const errorMessage = error.message;
-                if(errorMessage){
+                if (errorMessage) {
                     setError(error.message);
                 }
             });
@@ -90,12 +93,13 @@ const Login = () => {
                                 <button className="btn btn-primary">Login</button>
                             </div>
                         </form>
-
+                        
+                        <button onClick={handleGoogleSign} className='btn'>Login with Google</button>
+                        <button onClick={handleGithubSign} className='btn'>Login with Github</button>
                     </div>
                 </div>
             </div>
-            <button onClick={handleGoogleSign} className='btn'>Login with Google</button>
-            <button onClick={handleGithubSign} className='btn'>Login with Github</button>
+
         </div>
     );
 };

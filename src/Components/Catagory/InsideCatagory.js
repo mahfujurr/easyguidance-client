@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Pdf from "react-to-pdf";
+import { ArrowDownTrayIcon } from '@heroicons/react/24/solid'
 
 const ref = React.createRef();
 
@@ -10,12 +11,12 @@ const InsideCatagory = ({ tl }) => {
             <div className='flex justify-between'>
                 <h1 className='font-bold text-3xl'>{tl.name}</h1>
                 <Pdf targetRef={ref} filename="code-example.pdf">
-                    {({ toPdf }) => <button onClick={toPdf}>Download as Pdf</button>}
+                    {({ toPdf }) => <button onClick={toPdf} className='flex' >Download as Pdf <ArrowDownTrayIcon className='w-5 mx-2'/> </button>}
                 </Pdf>
             </div>
 
             <div ref={ref}>
-                <div key={tl._id} className='flex flex-col lg:flex-row justify-center items-center '>
+                <div className='flex flex-col lg:flex-row justify-center items-center '>
 
                     <img className='w-1/2 rounded-2xl my-5' src={tl.photoURL} alt="" />
                     <div className='lg:pl-10'>
